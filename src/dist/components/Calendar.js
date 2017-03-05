@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {hashHistory} from 'react-router';
 
 var http = require("http");
 
@@ -32,8 +33,8 @@ export default class CalendarContainer extends Component{
     // assuming you obtained teamid from your own profile
     var httpOptions = {
       host: "bolgarov.zapto.org",
-      port: 11038,
-      path: "/api/task/Weekly?teamId=2",
+      port: 11030,
+      path: "/api/task/",
       method: "GET",
       headers: {
         'Accept': 'application/json'
@@ -53,13 +54,26 @@ export default class CalendarContainer extends Component{
 
           var currentColor = colorList[Math.floor(Math.random() * colorList.length)];
 
+          console.log(result);
+
+          var dow = null;
+          if (result.recurring){
+            if (result.recurring == "Daily"){
+              dow = [0, 1, 2, 3, 4, 5, 6]
+            } else if (result.recurring == "Weekly"){
+              //TODO
+            }
+          }
+
           tasks.push({
             events: [
               {
                 title: result.taskName,
                 start: result.taskStartTime,
                 end: result.taskEndTime,
-                dow: [0,1,2,3,4,5,6]
+                taskId: result._id,
+                dow: dow,
+                //url: "/taskView?taskId=" + result._id + "&date="
               }
             ],
             color: currentColor.color,
@@ -114,7 +128,20 @@ class Calendar extends Component {
 
       $(calendar).fullCalendar({
         eventLimit: 3,
-        eventSources: this.props.events
+        eventSources: this.props.events,
+
+        eventClick: (calEvent, jsEvent, view) => {
+          var date = calEvent.start
+          console.log("calevent: ");
+          console.log(calEvent.taskId);
+          console.log(calEvent._start._d.toISOString());
+          console.log("jsEvent");
+          console.log(jsEvent);
+
+          var taskId = calEvent.taskId;
+          var isoString = calEvent._start._d.toISOString();
+          hashHistory.push('/TaskView?taskId=' + taskId + '&date=' + isoString);
+        }
       });
 
     console.log("test2");
