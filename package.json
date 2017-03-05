@@ -1,0 +1,41 @@
+{
+  "name": "newhackathon",
+  "version": "1.0.0",
+  "description": "A template I occasionally use to create a file structure for new node projects",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obolgarov/node-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obolgarov/node-template/issues"
+  },
+  "homepage": "https://github.com/obolgarov/node-template#readme",
+  "dependencies": {
+    "async": "^2.1.5",
+    "body-parser": "^1.17.0",
+    "express": "^4.15.0",
+    "google-distance": "^1.0.1",
+    "mongoose": "^4.8.5",
+    "nodemailer": "^3.1.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "isomorphic-fetch": "^2.2.1",
+    "react-hot-loader": "^1.3.1"
+  }
+}
