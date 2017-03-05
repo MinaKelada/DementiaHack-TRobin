@@ -84,7 +84,7 @@ class Map extends Component{
 
                       var contentString = `
                       <div>
-                        <h1> class="firstHeading">TEST</h1>
+                        <h1> class="firstHeading">{result.first_name}</h1>
                         <div>
                           <p>DETAILS</p>
                           <p>
