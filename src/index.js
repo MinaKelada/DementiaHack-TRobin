@@ -6,6 +6,7 @@ import Calendar from './dist/components/Calendar';
 import SearchMap from './dist/components/SearchMap';
 import Home from './dist/components/Home';
 import Main from './dist/components/Main';
+import TaskView from './dist/components/TaskView';
 
 
 
@@ -15,6 +16,7 @@ render((
     <IndexRoute component={Home}/>
     <Route path="searchMap" component={SearchMap}/>
     <Route path="calendar" component={Calendar}/>
+    <Route path="taskView" component={TaskView}/>
   </Route>
 </Router>
 ),document.getElementById('app'));
