@@ -61,7 +61,7 @@ export default class CalendarContainer extends Component{
             if (result.recurring == "Daily"){
               dow = [0, 1, 2, 3, 4, 5, 6]
             } else if (result.recurring == "Weekly"){
-              //TODO
+              dow = [startDate.getDate()]
             }
           }
 
